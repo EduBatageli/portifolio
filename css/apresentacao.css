@@ -1,0 +1,24 @@
+.apresentacao{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.apresentacao h2{
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 23vh;
+    margin-right: 15vw;
+    flex-wrap: wrap;
+
+}
+
+.apresentacao .img img{
+    align-items: center;
+    display: block;
+    margin-top: 30vh;
+    margin-left: 15vw;
+    border-radius: 90%;
+    border: 10px solid black;
+}
