@@ -1,17 +1,11 @@
 @import url("./cabecalho.css");
 @import url("./conteudo.css");
 @import url("./apresentacao.css");
-
+@import url("./texto.css");
 body {
     font-size: 10px;
     margin:1%;
     background-color: lightgrey;
-}
-
-.texto{
-    font-size: 2em;
-    text-align: center;
-    margin-top: 10vh;
 }
 
 
