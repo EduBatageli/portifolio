@@ -20,5 +20,6 @@
     margin-top: 30vh;
     margin-left: 15vw;
     border-radius: 90%;
-    border: 10px solid black;
+    border: 5px solid black;
+    max-width: 300px;
 }
