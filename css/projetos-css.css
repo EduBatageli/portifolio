@@ -1,0 +1,81 @@
+@import url("./cabecalho.css");
+@import url("./conteudo.css");
+
+body{
+    background-color: lightgrey;
+    
+}
+
+.projects {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.projects .projects-content {
+    max-width: 56rem;
+    text-align: center;
+    margin: 0 auto 4rem;
+}
+
+
+.projects ul li {
+    background-color: #A9A6A7;
+    margin: 50px;
+    border: 1px solid #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+
+.projects ul li .projects-info h3{
+    font-weight: 700;
+}
+
+.projects ul li .projects-info {
+    max-width: 47rem;
+}
+
+.projects ul li .projects-info p {
+    margin: 1rem 0 4rem;
+}
+
+.projects ul li .projects-info a {
+    background-color: var(--gray);
+    color: var(--white);
+    font-size: 2rem;
+}
+@media(max-width: 1200px) {
+    .projects-info{
+        margin-top: 20px;
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .conteudo ul li a{
+        font-size: 9px;
+        padding: 10;
+        flex-wrap: nowrap;
+    }
+
+    .image img{
+        margin-top: 20px;
+        max-width: 73vw;
+    }
+
+    .projects ul li {
+        display: block;
+        text-align: center;
+    }
+
+    .projects-info{
+        margin: 20px auto;
+    }
+
+
+}
+
