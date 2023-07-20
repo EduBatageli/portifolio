@@ -1,13 +1,74 @@
 @import url("./cabecalho.css");
 @import url("./conteudo.css");
-@import url("./apresentacao.css");
-@import url("./texto.css");
 body {
     font-size: 10px;
     margin:1%;
     background-color: lightgrey;
     overflow: hidden;
 }
+
+.apresentacao{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.apresentacao h2{
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 23vh;
+    margin-right: 15vw;
+    flex-wrap: wrap;
+
+}
+
+.apresentacao .img img{
+    align-items: center;
+    display: block;
+    margin-top: 30vh;
+    margin-left: 15vw;
+    border-radius: 90%;
+    border: 5px solid black;
+    max-width: 300px;
+}
+
+.texto{
+    font-size: 2em;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.texto {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.texto p {
+  font-size: 3rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+}
+.texto p span.typed-text {
+  font-weight: normal;
+  color: #dd7732;
+}
+.texto p span.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+.texto p span.cursor.typing {
+  animation: none;
+}
+
+
 
 
 @media (max-width: 2000px) {

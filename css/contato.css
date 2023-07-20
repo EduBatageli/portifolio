@@ -1,0 +1,44 @@
+@import url("./cabecalho.css");
+@import url("./conteudo.css");
+
+body{
+    background-color: lightgrey;    
+}
+
+.contato h1{
+    font-size: 60px;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.contato h2{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    gap: 20px;
+}
+
+
+
+@media (max-width: 500px){
+    .conteudo ul li a{
+        font-size: 9px;
+        flex-wrap: nowrap;
+    }
+
+    .contato h1{
+        font-size: 40px;
+    }
+
+    .contato h2{
+        font-size: 20px;
+    }
+
+
+}
