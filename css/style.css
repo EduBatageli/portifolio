@@ -164,7 +164,7 @@ body {
 @media (max-width: 500px) {
 
     .conteudo ul li a{
-        font-size: 9px;
+        font-size: 8px;
         padding: 5%;
         flex-wrap: nowrap;
     }
