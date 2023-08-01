@@ -32,7 +32,8 @@ body{
 }
 
 .imagem2 img{
-    max-width: 73vw;
+    max-height: 45vh;
+    width: 39vw;
 }
 
 .projects ul li .projects-info h3{
