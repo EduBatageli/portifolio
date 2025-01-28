@@ -18,7 +18,8 @@ body, html {
     padding: 30px;
     border-radius: 12px;
     margin-bottom: 30px;
-}
+    justify-content: space-between; 
+} 
 .profile-image {
     width: 150px;
     height: 150px;
@@ -66,4 +67,12 @@ body, html {
 .timeline-title {
     color: #60A5FA;
     margin-bottom: 5px;
+}
+
+#button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none; /* Remove o sublinhado do link */
+    border-radius: 5px; /* Arredonda as bordas */
 }
