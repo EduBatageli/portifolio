@@ -30,3 +30,20 @@
     margin: 0;
     color: #9CA3AF;
 }
+
+@media (max-width: 615px) {
+    .profile {
+        flex-direction: column; /* Altera para layout em coluna */
+        align-items: center; /* Centraliza os itens */
+        text-align: center; /* Centraliza o texto */
+    }
+    
+    .profile-image {
+        margin-right: 0; /* Remove o espaçamento lateral */
+        margin-bottom: 15px; /* Adiciona espaço abaixo da imagem */
+    }
+
+    #button {
+        margin-top: 10px; /* Adiciona espaço acima do botão */
+    }
+}
