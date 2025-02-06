@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="light">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto</title>
     <link rel="stylesheet" href="../../public/css/style.css" />
   </head>
-  <body>
+  <body class="">
     <div class="container">
       <div class="profile">
         <img src="../../public/assets/user.jpg" alt="Profile Picture" />
         <h1>@edubatageli</h1>
-        <p>Sistem Analyst | Agent Engineer (A.I)</p>
+        <p id="description">Sistem Analyst | Agent Engineer (A.I)</p>
 
-        <div id="switch">
+        <div id="switch" onclick="alterMode()">
+          <button></button>
+          <span></span>
+        </div>
+
+        <div id="switch-lang" onclick="alterLang()">
           <button></button>
           <span></span>
         </div>
 
         <div class="buttons">
-          <a href="../../src/views/projects.html" class="btn btn-portfolio">Projects</a>
-          <a href="#" class="btn btn-contact">Contact</a>
-          <a href="../../src/views/sumary.html" class="btn btn-contact">Summary</a>
+          <a href="../../src/views/projects.html" class="btn btn-portfolio" id="btn-portfolio">Projects</a>
+          <a href="#" class="btn btn-contact" id="btn-contact">Contact</a>
+          <a href="../../src/views/sumary.html" class="btn btn-sumary" id="btn-sumary">Summary</a>
         
           <div class="redes_sociais">
             <a href="https://github.com/EduBatageli" target="_blank" class="btn btn-github">Github</a>
@@ -30,5 +35,7 @@
         </div>
       </div>
     </div>
+
+    <script src="../../script.js"></script>
   </body>
 </html>

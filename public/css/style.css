@@ -11,14 +11,28 @@ body, html {
     --bg-container: #1F2937;
     --bg-profile: #374151;
     --btn-switch: url("../assets/lua.svg");
+    --bg-btn: #0369A1;
+    --btn-git: #24292E;
+    --btn-linkedin: #0A66C2;
+    --hover: #4B5563;
+    --btn-lang: url("../assets/eua.svg");
 }
 
 .light {
     --text-color: black;
-    --bg-container: white;
-    --bg-profile: #D3D3D3;
+    --bg-container: #EFF6FF;
+    --bg-profile: white;
     --btn-switch: url("../assets/sol.svg");
+    --bg-btn: #CCE5FF;
+    --btn-git: #718096;
+    --btn-linkedin: #2D9CDB; 
+    --hover: lightgray;
 }
+
+.ptbr {
+    --btn-lang: url("../assets/brasil.svg");
+}
+
 
 .container {
     display: flex;
@@ -86,11 +100,47 @@ body, html {
     backdrop-filter: blur(4px);
 }
 
+#switch-lang {
+    position: relative;
+    margin: 15px auto;
+    width: 70px;
+}
+
+#switch-lang button{
+    width: 32px;
+    height: 32px;
+    background: white var(--btn-lang) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.ptbr #switch-lang button {
+    right: 0;
+    left: initial;
+
+}
+
+#switch-lang span{
+    display: block;
+    border-radius: 9999px;
+    width: 64px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
 .buttons {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
+
 
 .redes_sociais{
     display: flex;
@@ -106,13 +156,14 @@ body, html {
     font-weight: bold;
     text-align: center;
 }
-.btn-portfolio { background-color: #0369A1 ; }
-.btn-contact { background-color: #0369A1; }
-.btn-github { width: 50%; background-color: #24292E; }
-.btn-linkedin { width: 50%; background-color: #0A66C2; }
+.btn-portfolio { background-color: var(--bg-btn) ; }
+.btn-contact { background-color: var(--bg-btn); }
+.btn-sumary {background-color: var(--bg-btn);}
+.btn-github { width: 50%; background-color: var(--btn-git); }
+.btn-linkedin { width: 50%; background-color: var(--btn-linkedin); }
 
 .btn:hover {
-    background-color: #4B5563;
+    background-color: var(--hover);
 }
 
 @media (max-width: 768px) {
