@@ -15,6 +15,7 @@ function alterLang(){
     const body = document.body
 
     if(body.classList.contains("ptbr")) {
+        body.classList.remove("ptbr")
         document.getElementById("description").innerHTML = "Sistem Analyst | Agent Engineer (A.I)"
         document.getElementById("btn-portfolio").innerHTML = "Projects"
         document.getElementById("btn-contact").innerHTML = "Contact"
