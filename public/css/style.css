@@ -139,6 +139,9 @@ body, html {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    box-shadow: none;
+    outline: none;
+    border: none;
 }
 
 
@@ -149,6 +152,10 @@ body, html {
 }
 
 .btn {
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+    border: none;
     padding: 12px;
     border-radius: 8px;
     text-decoration: none;
