@@ -1,33 +1,34 @@
-function alterMode(){
 
-    const html = document.documentElement
+// rota para aba de projetos com atributos de lang e tema
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("btn-portfolio").addEventListener("click", () => {
+        const lang = document.body.classList.contains("ptbr") ? "ptbr" : "en";
+        const theme = document.documentElement.classList.contains("light") ? "light" : "dark"
+        window.location.href = `${window.location.origin}C:/Users/edumb/Desktop/portifolio/src/views/projects.html?lang=${lang}&theme=${theme}`;
+    });
+});
 
-    if(html.classList.contains("light")) {
-        html.classList.remove("light")
-    } else {
-        html.classList.add("light")
-    }
-
+function alterMode() {
+    const html = document.documentElement;
+    html.classList.toggle("light");
 }
 
-function alterLang(){
+function alterLang() {
+    const body = document.body;
 
-    const body = document.body
+    if (body.classList.contains("ptbr")) {
+        body.classList.remove("ptbr");
 
-    if(body.classList.contains("ptbr")) {
-        body.classList.remove("ptbr")
-        document.getElementById("description").innerHTML = "Sistem Analyst | Agent Engineer (A.I)"
-        document.getElementById("btn-portfolio").innerHTML = "Projects"
-        document.getElementById("btn-contact").innerHTML = "Contact"
-        document.getElementById("btn-sumary").innerHTML = "Summary"
-        document.getElementById("description").innerHTML = "Sistem Analyst | Agent Engineer (A.I)"
-
+        document.getElementById("description").innerHTML = "System Analyst | Agent Engineer (A.I)";
+        document.getElementById("btn-portfolio").innerHTML = "Projects";
+        document.getElementById("btn-contact").innerHTML = "Contact";
+        document.getElementById("btn-sumary").innerHTML = "Summary";
     } else {
-        body.classList.add("ptbr")
-        document.getElementById("description").innerHTML = "Analista de Sistemas | Engenheiro de Agente(IA)"
-        document.getElementById("btn-portfolio").innerHTML = "Projetos"
-        document.getElementById("btn-contact").innerHTML = "Contato"
-        document.getElementById("btn-sumary").innerHTML = "Resumo"
-    }
+        body.classList.add("ptbr");
 
+        document.getElementById("description").innerHTML = "Analista de Sistemas | Engenheiro de Agente (IA)";
+        document.getElementById("btn-portfolio").innerHTML = "Projetos";
+        document.getElementById("btn-contact").innerHTML = "Contato";
+        document.getElementById("btn-sumary").innerHTML = "Resumo";
+    }
 }
