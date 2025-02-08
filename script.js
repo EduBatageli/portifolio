@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("btn-sumary").addEventListener("click", () => {
+        const lang = document.body.classList.contains("ptbr") ? "ptbr" : "en";
+        const theme = document.documentElement.classList.contains("light") ? "light" : "dark"
+        window.location.href = `${window.location.origin}C:/Users/edumb/Desktop/portifolio/src/views/sumary.html?lang=${lang}&theme=${theme}`;
+    });
+});
+
 function alterMode() {
     const html = document.documentElement;
     html.classList.toggle("light");
