@@ -16,6 +16,7 @@ body, html {
     --btn-linkedin: #0A66C2;
     --hover: #4B5563;
     --btn-lang: url("../assets/eua.svg");
+    --border-switch: rgba(255, 255, 255, 0.1);
 }
 
 .light {
@@ -27,6 +28,7 @@ body, html {
     --btn-git: #718096;
     --btn-linkedin: #2D9CDB; 
     --hover: lightgray;
+    --border-switch: black;
 }
 
 .ptbr {
@@ -81,7 +83,7 @@ body, html {
 #switch button {
     width: 32px;
     height: 32px;
-    background: white var(--btn-switch) no-repeat center;
+    background: lightgray var(--btn-switch) no-repeat center;
     border: 0;
     border-radius: 50%;
     position: absolute;
@@ -96,7 +98,7 @@ body, html {
     width: 64px;
     height: 24px;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-switch);
     backdrop-filter: blur(4px);
 }
 
@@ -109,7 +111,7 @@ body, html {
 #switch-lang button{
     width: 32px;
     height: 32px;
-    background: white var(--btn-lang) no-repeat center;
+    background: lightgray var(--btn-lang) no-repeat center;
     border: 0;
     border-radius: 50%;
     position: absolute;
@@ -131,7 +133,7 @@ body, html {
     width: 64px;
     height: 24px;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-switch);
     backdrop-filter: blur(4px);
 }
 
