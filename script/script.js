@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-portfolio").addEventListener("click", () => {
         const lang = document.body.classList.contains("ptbr") ? "ptbr" : "en";
         const theme = document.documentElement.classList.contains("light") ? "light" : "dark"
-        window.location.href = `${window.location.origin}/src/views/projects.html?lang=${lang}&theme=${theme}`;
+        window.location.href = `https://edubatageli.github.io/portifolio/src/views/projects.html?lang=${lang}&theme=${theme}`;
     });
 });
 
