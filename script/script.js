@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
 function alterMode() {
     const html = document.documentElement;
     html.classList.toggle("light");
