@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const lang = document.body.classList.contains("ptbr") ? "ptbr" : "en";
         const theme = document.documentElement.classList.contains("light") ? "light" : "dark";
         // Atualiza a URL quando clicar no botão de projetos
-        window.location.href = `${window.location.origin}https://edubatageli.github.io/portifolio/src/views/projects.html?lang=${lang}&theme=${theme}`;
+        window.location.href = `https://edubatageli.github.io/portifolio/src/views/projects.html?lang=${lang}&theme=${theme}`;
     });
 });
 
