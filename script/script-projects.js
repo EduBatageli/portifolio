@@ -1,10 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("button-back").addEventListener("click", () => {
-        const lang = document.body.classList.contains("ptbr") ? "ptbr" : "en";
-        const theme = document.documentElement.classList.contains("light") ? "light" : "dark"
-        window.location.href = `https://edubatageli.github.io/portifolio/index.html?lang=${lang}&theme=${theme}`;
-    });
-});
 
 const params = new URLSearchParams(window.location.search);
 
