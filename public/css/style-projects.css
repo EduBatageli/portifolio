@@ -97,8 +97,18 @@ body, html {
     background-color: red;
     color: white;
     padding: 5px 10px;
-    text-decoration: none; /* Remove o sublinhado do link */
-    border-radius: 5px; /* Arredonda as bordas */
+    text-decoration: none;
+    border-radius: 5px;
+    border: none; /* Removes the border */
+    outline: none; /* Removes the outline when focused */
+    cursor: pointer; /* Changes cursor to hand when hovering */
+}
+
+/* If you need to remove the border from all buttons with the btn class */
+.btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .profile {
