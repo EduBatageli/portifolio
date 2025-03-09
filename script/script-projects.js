@@ -21,3 +21,9 @@ else {
     document.getElementById("button-back").innerHTML = "Back"
 
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("button-back").addEventListener("click", () => {
+        window.location.href = `https://edubatageli.github.io/portifolio/index.html?lang=${lang}&theme=${theme}`;
+    });
+});
