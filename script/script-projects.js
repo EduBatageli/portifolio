@@ -10,19 +10,19 @@ html.classList.add(theme)
 
 
 if(lang === "ptbr") {
-    document.getElementById("titulo_projeto1").innerHTML = "Plataforma de Gerenciamento de Senhas"
-    document.getElementById("desc_projeto1").innerHTML = "Plataforma segura para armazenar, gerar e gerenciar senhas com criptografia."
     document.getElementById("button-back").innerHTML = "Voltar"
     document.getElementById("titulo_projeto1").innerHTML = "Gerador de Receitas com IA"
     document.getElementById("desc_projeto1").innerHTML = "Agente inteligente que gera receitas personalizadas com base nos ingredientes fornecidos."
+    document.getElementById("titulo_projeto2").innerHTML = "Gerenciador de Senhas"
+    document.getElementById("desc_projeto2").innerHTML = "Um gerenciador de senhas seguro e fácil de usar que permite aos usuários armazenar, organizar e acessar suas credenciais."
 
 }
 else {
-    document.getElementById("titulo_projeto1").innerHTML = "Password Management Platform"
-    document.getElementById("desc_projeto1").innerHTML = "Secure platform for storing, generating, and managing passwords with encryption."
     document.getElementById("button-back").innerHTML = "Back"
     document.getElementById("titulo_projeto1").innerHTML = "AI Recipe Generator"
     document.getElementById("desc_projeto1").innerHTML = "Intelligent agent that generates personalized recipes based on the ingredients provided."
+    document.getElementById("titulo_projeto2").innerHTML = "Password Manager"
+    document.getElementById("desc_projeto2").innerHTML = "A secure and user-friendly password manager that allows users to store, organize, and access their credentials."
 
 }
 
