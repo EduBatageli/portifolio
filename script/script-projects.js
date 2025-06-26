@@ -26,7 +26,7 @@ else {
     document.getElementById("titulo_projeto2").innerHTML = "Password Manager"
     document.getElementById("desc_projeto2").innerHTML = "A secure and user-friendly password manager that allows users to store, organize, and access their credentials."
     document.getElementById("titulo_projeto3").innerHTML = "News Summary Automation"
-    document.getElementById("desc_projeto3").innerHTML = "A smart automation flow that collects RSS feeds, summarizes the content using AI (Groq), and delivers a daily digest directly to Telegram."
+    document.getElementById("desc_projeto3").innerHTML = "A smart automation flow that collects RSS feeds, summarizes the content using AI, and delivers a daily digest directly to Telegram."
 }
 
 document.addEventListener("DOMContentLoaded", () => {
