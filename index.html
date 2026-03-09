@@ -1,40 +1,1074 @@
 <!DOCTYPE html>
-<html lang="en" class="">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projeto</title>
-    <link rel="stylesheet" href="./public/css/style.css" />
-  </head>
-  <body class="">
-    <div class="container">
-      <div class="profile">
-        <img src="./public/assets/user.JPEG" alt="Profile Picture" />
-        <h1>@edubatageli</h1>
-        <p id="description">Sistem Analyst | Agent Engineer (A.I)</p>
+<html lang="en" class="lang-en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Batageli | Systems Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Deep, focused workspace colors */
+            --bg-base: #0a0a0c;
+            --surface-1: #121216;
+            --surface-2: #1e1e24;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            
+            /* Typography Colors */
+            --text-primary: #f2f2f5;
+            --text-secondary: #9da3af;
+            --text-muted: #6b7280;
+            
+            /* Accents */
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --accent-solid: #3b82f6;
+            --accent-terminal: #10b981; /* technical green */
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-        <div id="switch" onclick="alterMode()">
-          <button></button>
-          <span></span>
-        </div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-        <div id="switch-lang" onclick="alterLang()">
-          <button></button>
-          <span></span>
-        </div>
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-base);
+        }
 
-        <div class="buttons">
-          <button class="btn btn-portfolio" id="btn-portfolio">Projects</button>
-          <button class="btn btn-sumary" id="btn-sumary">Summary</button>
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Language Toggle Display Logic */
+        .lang-en [data-lang="pt"],
+        .lang-pt [data-lang="en"] {
+            display: none !important;
+        }
+
+        /* Technical Background Grid */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center center;
+            z-index: -2;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 70vw;
+            height: 70vw;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 24px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--bg-base) 60%, transparent);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: '>';
+            color: var(--accent-terminal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        .nav-item {
+            color: var(--text-secondary);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--text-primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lang-trigger {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+        }
+
+        .lang-trigger:hover {
+            background: var(--surface-1);
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+
+        /* Terminal Trigger */
+        .term-trigger {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-trigger:hover {
+            background: var(--surface-1);
+            color: var(--accent-terminal);
+            border-color: var(--border-hover);
+        }
+
+        .term-trigger .glow-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            background-color: var(--accent-terminal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-terminal);
+        }
+
+        /* Layout Structure */
+        section {
+            padding: 120px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            width: fit-content;
+        }
+
+        .status-badge::before {
+            content: '';
+            display: block;
+            width: 6px; height: 6px;
+            background: var(--accent-solid);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero h1 span.highlight {
+            color: var(--text-muted);
+        }
+
+        .hero h2 {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            border-left: 2px solid var(--border-hover);
+            padding-left: 20px;
+        }
+
+        /* Discipline & Anatomy Section (About) */
+        .anatomy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            color: var(--accent-solid);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .text-block p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .text-block strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Rigid Data Cards (Skills) */
+        .data-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .data-card {
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            padding: 24px;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .data-card:hover {
+            border-color: var(--border-hover);
+            background: var(--surface-2);
+            transform: translateY(-2px);
+        }
+
+        .data-value {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .data-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Structural Experience */
+        .timeline-wrapper {
+            position: relative;
+            margin-top: 4rem;
+            border-left: 1px solid var(--border-subtle);
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .exp-node {
+            position: relative;
+        }
+
+        .exp-node::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 6px;
+            width: 9px;
+            height: 9px;
+            background: var(--bg-base);
+            border: 2px solid var(--border-hover);
+            border-radius: 50%;
+            transition: var(--transition-smooth);
+        }
+
+        .exp-node:hover::before {
+            border-color: var(--accent-solid);
+            background: var(--accent-solid);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .exp-meta {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .exp-role {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .exp-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 700px;
+        }
+
+        /* Systems (Projects) */
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-top: 4rem;
+        }
+
+        .system-card {
+            background: var(--surface-1);
+            border: 1px solid var(--border-subtle);
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 60%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .system-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+
+        .system-card:hover::before {
+            opacity: 1;
+        }
+
+        .system-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sys-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .sys-id {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .sys-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .sys-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .sys-stack {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            background: var(--bg-base);
+            border: 1px solid var(--border-subtle);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .sys-link {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: underline;
+            text-decoration-color: var(--border-subtle);
+            text-underline-offset: 6px;
+            transition: var(--transition-smooth);
+            align-self: flex-start;
+        }
+
+        .sys-link:hover {
+            text-decoration-color: var(--text-primary);
+            color: var(--accent-solid);
+        }
+
+        /* Easter Egg Terminal */
+        .terminal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .terminal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .terminal-window {
+            width: 90%;
+            max-width: 800px;
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            transform: translateY(20px) scale(0.98);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .terminal-overlay.active .terminal-window {
+            transform: translateY(0) scale(1);
+        }
+
+        .terminal-header {
+            background: #1a1a1a;
+            padding: 12px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .term-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .term-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+        }
+
+        .term-dot.close { background: #ff5f56; cursor: pointer; }
+        .term-dot.min { background: #ffbd2e; }
+        .term-dot.max { background: #27c93f; }
+
+        .term-title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .terminal-body {
+            padding: 24px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .term-line {
+            margin-bottom: 8px;
+            opacity: 0;
+        }
+
+        .term-line.visible {
+            opacity: 1;
+        }
+
+        .term-prompt::before {
+            content: 'user@sys ~$ ';
+            color: var(--accent-terminal);
+        }
+
+        .term-output {
+            color: #a1a1aa;
+            padding-left: 16px;
+            margin-bottom: 16px;
+            border-left: 2px solid #333;
+        }
+
+        .term-highlight { color: #fff; font-weight: 700; }
         
-          <div class="redes_sociais">
-            <a href="https://github.com/EduBatageli" target="_blank" class="btn btn-github">Github</a>
-            <a href="https://www.linkedin.com/in/eduardo-moura-batageli-5b4250240/" target="_blank" class="btn btn-linkedin">Linkedin</a>
-          </div>
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 40px 5%;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .anatomy-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .data-cards { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .header-actions { flex-direction: column; align-items: flex-end; gap: 8px; }
+            .lang-trigger { padding: 4px 8px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <header>
+        <div class="logo">edubatageli.sys</div>
+        <nav class="nav-links">
+            <a href="#core" class="nav-item">
+                <span data-lang="en">Core Modules</span>
+                <span data-lang="pt">Módulos Core</span>
+            </a>
+            <a href="#timeline" class="nav-item">
+                <span data-lang="en">Execution Log</span>
+                <span data-lang="pt">Histórico Operacional</span>
+            </a>
+            <a href="#systems" class="nav-item">
+                <span data-lang="en">Deployed Systems</span>
+                <span data-lang="pt">Sistemas Implantados</span>
+            </a>
+        </nav>
+        <div class="header-actions">
+            <button class="lang-trigger" id="langToggle" title="Translate">
+                <span data-lang="en" style="display:flex; gap: 6px; align-items: center;">PT <img src="https://flagcdn.com/w20/br.png" alt="BR" style="width: 16px;"></span>
+                <span data-lang="pt" style="display:flex; gap: 6px; align-items: center;">EN <img src="https://flagcdn.com/w20/us.png" alt="US" style="width: 16px;"></span>
+            </button>
+            <button class="term-trigger" id="openTermBtn">
+                <span class="glow-dot"></span> 
+                <span data-lang="en">sudo inspect</span>
+                <span data-lang="pt">sudo inspecionar</span>
+            </button>
         </div>
-      </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="reveal">
+                <div class="status-badge">
+                    <span data-lang="en">System Status: Optimal</span>
+                    <span data-lang="pt">Status do Sistema: Operacional</span>
+                </div>
+                <h1>
+                    <!-- EN VERSION -->
+                    <span data-lang="en">Architecting Structure.<br><span class="highlight">Automating Chaos.</span></span>
+                    <!-- PT VERSION -->
+                    <span data-lang="pt">Arquitetando Estrutura.<br><span class="highlight">Automatizando o Caos.</span></span>
+                </h1>
+                <h2>
+                    <span data-lang="en">I analyze complex, fragmented workflows and engineer deep, long-term automation structures. Where others see isolated tasks, I see the matrix of a scalable system.</span>
+                    <span data-lang="pt">Analiso fluxos de trabalho complexos e projeto estruturas profundas de automação a longo prazo. Onde outros veem tarefas isoladas, eu vejo a matriz de um sistema escalável.</span>
+                </h2>
+                <div>
+                    <a href="#systems" class="term-trigger" style="display: inline-flex; padding: 12px 24px; font-size: 0.95rem;">
+                        > <span data-lang="en">execute deployed_systems.sh</span><span data-lang="pt">executar sistemas_implantados.sh</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="core">
+            <div class="section-header reveal">
+                <span class="section-label">
+                    <span data-lang="en">01 // The Architecture</span>
+                    <span data-lang="pt">01 // A Arquitetura</span>
+                </span>
+                <h2 class="section-title">
+                    <span data-lang="en">Core Principles</span>
+                    <span data-lang="pt">Princípios Subjacentes</span>
+                </h2>
+            </div>
+            
+            <div class="anatomy-grid reveal">
+<div class="text-block">
+    <p data-lang="en">
+        Real progress doesn’t come from shortcuts. It comes from <strong>discipline and strong foundations</strong>. 
+        My mindset is deeply influenced by Judo: consistency, gradual improvement, respect for the process, and focus on getting better every day.
+    </p>
+    <p data-lang="pt">
+        Progresso de verdade não vem de atalhos. Ele nasce da <strong>disciplina e de bases sólidas</strong>. 
+        Minha forma de pensar é muito influenciada pelo Judô: constância, evolução gradual, respeito pelo processo e foco em melhorar um pouco todos os dias.
+    </p>
+
+    <p data-lang="en">
+        As a Systems Analyst working toward becoming a Software Architect, I go beyond just writing code. 
+        I look at how systems behave, identify bottlenecks, and build automations and AI agents that turn slow manual processes into efficient workflows. 
+        <strong>I like building systems that are simple, reliable, and built to last.</strong>
+    </p>
+    <p data-lang="pt">
+        Como Analista de Sistemas em caminho para me tornar Arquiteto de Software, eu vou além de apenas escrever código. 
+        Procuro entender como os sistemas realmente funcionam, identificar gargalos e criar automações e agentes de IA que transformam processos manuais demorados em fluxos eficientes. 
+        <strong>Gosto de construir sistemas simples, confiáveis e feitos para durar.</strong>
+    </p>
+</div>
+                
+ <div class="data-cards">
+    <div class="data-card">
+        <div class="data-value">> Pricing</div>
+        <div class="data-label">
+            <span data-lang="en">Data-Driven Pricing Strategy</span>
+            <span data-lang="pt">Estratégia de Preços Baseada em Dados</span>
+        </div>
     </div>
 
-    <script src="./script/script.js"></script>
-  </body>
+    <div class="data-card">
+        <div class="data-value">> Development</div>
+        <div class="data-label">
+            <span data-lang="en">Systems & Application Development</span>
+            <span data-lang="pt">Desenvolvimento de Sistemas e Aplicações</span>
+        </div>
+    </div>
+
+    <div class="data-card">
+        <div class="data-value">> RevOps</div>
+        <div class="data-label">
+            <span data-lang="en">Revenue Operations & Process Optimization</span>
+            <span data-lang="pt">Operações de Receita e Otimização de Processos</span>
+        </div>
+    </div>
+
+    <div class="data-card">
+        <div class="data-value">> Automation</div>
+        <div class="data-label">
+            <span data-lang="en">Process Optimization & Intelligent Workflows</span>
+            <span data-lang="pt">Otimização de Processos e Fluxos Inteligentes</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <div class="section-header reveal">
+                <span class="section-label">
+                    <span data-lang="en">02 // Execution Log</span>
+                    <span data-lang="pt">02 // Log de Execução</span>
+                </span>
+                <h2 class="section-title">
+                    <span data-lang="en">Operational History</span>
+                    <span data-lang="pt">Histórico Operacional</span>
+                </h2>
+            </div>
+
+            <div class="timeline-wrapper reveal">
+                <div class="exp-node">
+                    <div class="exp-meta">
+                        <span>Skyone</span>
+                        <span>[2024 - <span data-lang="en">Present</span><span data-lang="pt">Atual</span>]</span>
+                    </div>
+                    <h3 class="exp-role">
+                        <span data-lang="en">Systems Analyst & Developer</span>
+                        <span data-lang="pt">Analista de Sistemas e Desenvolvedor</span>
+                    </h3>
+<p class="exp-desc">
+    <span data-lang="en">
+        Designing and improving automated processes to replace fragmented manual workflows. 
+        I focus on building reliable systems with clear validation layers, reducing operational friction 
+        and making processes faster, safer, and easier to scale.
+    </span>
+    <span data-lang="pt">
+        Projeto e aprimoro processos automatizados para substituir fluxos manuais fragmentados. 
+        Meu foco é construir sistemas confiáveis, com camadas claras de validação, reduzindo atritos operacionais 
+        e tornando os processos mais rápidos, seguros e escaláveis.
+    </span>
+</p>
+                </div>
+
+                <div class="exp-node">
+                    <div class="exp-meta">
+                        <span>Skyone</span>
+                        <span>[2023 - 2024]</span>
+                    </div>
+                    <h3 class="exp-role">
+                        <span data-lang="en">Cloud Solutions Architect</span>
+                        <span data-lang="pt">Arquiteto de Soluções Cloud</span>
+                    </h3>
+                    <p class="exp-desc">
+                        <span data-lang="en">Designed hyper-resilient cloud topologies (Oracle, AWS, Azure) for complex enterprise environments. Acted as the technical anchor for Customer Success, validating deployments and ensuring long-term systemic stability.</span>
+                        <span data-lang="pt">Planejei e implementei topologias hiper-resilientes em nuvem (Oracle, AWS, Azure) para clientes corporativos de alto risco. Atuei diretamente como âncora técnica do Customer Success, retendo valor e sustentabilidade nos projetos escaláveis.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="systems">
+            <div class="section-header reveal">
+                <span class="section-label">
+                    <span data-lang="en">03 // System Outputs</span>
+                    <span data-lang="pt">03 // Saídas do Processo</span>
+                </span>
+                <h2 class="section-title">
+                    <span data-lang="en">Deployed Architecture</span>
+                    <span data-lang="pt">Arquitetura Implementada</span>
+                </h2>
+            </div>
+
+            <div class="systems-grid">
+                
+                <div class="system-card reveal">
+                    <div class="system-content">
+                        <div class="sys-header">
+                            <span class="sys-id">SYS_01</span>
+                        </div>
+                        <h3 class="sys-title">
+                            <span data-lang="en">AI Recipe Generator</span>
+                            <span data-lang="pt">Gerador Analítico de Receitas</span>
+                        </h3>
+                        <div class="sys-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AI Agent</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                        <p class="sys-desc">
+                            <span data-lang="en">An intelligent decision-engine that parses limited input (ingredients) and outputs highly structured, personalized data (precise culinary instructions).</span>
+                            <span data-lang="pt">Um motor analítico que avalia inputs caóticos e limitados (ingredientes isolados) para retornar uma saída concisa, formatada e processável (instruções de jantar refinadas).</span>
+                        </p>
+                        <a href="https://github.com/EduBatageli/recieitas_ia" target="_blank" class="sys-link">
+                            <span data-lang="en">View Source</span>
+                            <span data-lang="pt">Inspecionar Código</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-card reveal">
+                    <div class="system-content">
+                        <div class="sys-header">
+                            <span class="sys-id">SYS_02</span>
+                        </div>
+                        <h3 class="sys-title">
+                            <span data-lang="en">Encrypted Data Vault</span>
+                            <span data-lang="pt">Cofre de Dados Isolado</span>
+                        </h3>
+                        <div class="sys-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SecOps</span>
+                        </div>
+                        <p class="sys-desc">
+                            <span data-lang="en">A highly structured, locally-hosted credential manager built on the premise of absolute data control and minimal dependency overhead.</span>
+                            <span data-lang="pt">Estrutura altamente resiliente para gestão de credenciais hospedada em local. Projetada para quem exige controle absoluto de permissões livre de APIs externas.</span>
+                        </p>
+                        <a href="https://github.com/EduBatageli/GerenciadorDeSenha" target="_blank" class="sys-link">
+                            <span data-lang="en">View Source</span>
+                            <span data-lang="pt">Inspecionar Código</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-card reveal">
+                    <div class="system-content">
+                        <div class="sys-header">
+                            <span class="sys-id">SYS_03</span>
+                        </div>
+                        <h3 class="sys-title">
+                            <span data-lang="en">Autonomous Signal Extraction</span>
+                            <span data-lang="pt">Extração Autônoma de Sinais</span>
+                        </h3>
+                        <div class="sys-stack">
+                            <span class="tech-tag">n8n</span>
+                            <span class="tech-tag">LLM Parse</span>
+                            <span class="tech-tag">Telegram API</span>
+                        </div>
+                        <p class="sys-desc">
+                            <span data-lang="en">A silent running process that monitors noise (RSS feeds), applies analytical LLM filtering, and delivers pure signal (curated digests) autonomously.</span>
+                            <span data-lang="pt">Monitoramento agnóstico silencioso. Ele extrai RSS massivos de notícias, passa as informações por uma cadeia LLM e te notifica as verdadeiras tendências do mercado separando o ruído direto na palma da mão.</span>
+                        </p>
+                        <a href="https://youtu.be/qG_ud2MKuzw" target="_blank" class="sys-link">
+                            <span data-lang="en">View Trace Log</span>
+                            <span data-lang="pt">Assistir Execução</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <span data-lang="en">System runtime:</span>
+            <span data-lang="pt">Ciclo de vida operacional:</span>
+            <span id="year"></span> | Eduardo Batageli.
+            <br>
+            <span data-lang="en">All processes terminated normally.</span>
+            <span data-lang="pt">Nenhuma anomalia detectada. Processos concluídos com êxito.</span>
+        </p>
+    </footer>
+
+    <!-- Interactive Terminal Easter Egg -->
+    <div class="terminal-overlay" id="termOverlay">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="term-dots">
+                    <div class="term-dot close" id="closeTermBtn"></div>
+                    <div class="term-dot min"></div>
+                    <div class="term-dot max"></div>
+                </div>
+                <div class="term-title">edubatageli@core ~ (zsh)</div>
+            </div>
+            <div class="terminal-body" id="termBody">
+                <!-- Lines populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Language toggle logic
+        const langToggle = document.getElementById('langToggle');
+        const rootHtml = document.documentElement;
+
+        const defaultLang = localStorage.getItem('site-lang') || 'pt';
+        rootHtml.className = `lang-${defaultLang}`;
+        rootHtml.setAttribute('lang', defaultLang);
+
+        langToggle.addEventListener('click', () => {
+            const isEn = rootHtml.classList.contains('lang-en');
+            const newLang = isEn ? 'pt' : 'en';
+            rootHtml.className = `lang-${newLang}`;
+            rootHtml.setAttribute('lang', newLang);
+            localStorage.setItem('site-lang', newLang);
+        });
+
+        // Reveal Animations using Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Easter Egg Terminal Logic
+        const openBtn = document.getElementById('openTermBtn');
+        const closeBtn = document.getElementById('closeTermBtn');
+        const overlay = document.getElementById('termOverlay');
+        const termBody = document.getElementById('termBody');
+
+const scriptData = {
+    'en': [
+        { type: 'cmd', text: 'cat philosophy/judo_principles.log' },
+        { type: 'out', text: 'Loading foundational mindset...' },
+        { type: 'out', text: '> Principle detected: Seiryoku Zen\'yo' },
+        { type: 'out', text: '> Maximum efficiency with minimum effort' },
+        { type: 'out', text: 'Applying strategic thinking to systems and processes...' },
+        { type: 'out', text: 'Optimization mode: ACTIVE' },
+        { type: 'cmd', text: 'grep "Jita Kyoei" ./core/principles.db' },
+        { type: 'out', text: 'Match found: "Mutual welfare and benefit."' },
+        { type: 'out', text: 'Design philosophy: Build systems that improve both people and processes.' },
+        { type: 'cmd', text: 'echo "Architecture aligned with Judo principles."' },
+        { type: 'out', text: 'System ready.' }
+    ],
+    'pt': [
+        { type: 'cmd', text: 'cat filosofia/principios_judo.log' },
+        { type: 'out', text: 'Carregando fundamentos de pensamento...' },
+        { type: 'out', text: '> Princípio detectado: Seiryoku Zen\'yo' },
+        { type: 'out', text: '> Máxima eficiência com mínimo esforço' },
+        { type: 'out', text: 'Aplicando estratégia e otimização em sistemas e processos...' },
+        { type: 'out', text: 'Modo de otimização: ATIVO' },
+        { type: 'cmd', text: 'grep "Jita Kyoei" ./principios/base.db' },
+        { type: 'out', text: 'Match encontrado: "Prosperidade e benefícios mútuos."' },
+        { type: 'out', text: 'Filosofia de construção: criar sistemas que beneficiem pessoas e processos.' },
+        { type: 'cmd', text: 'echo "Arquitetura guiada pelos princípios do Judô."' },
+        { type: 'out', text: 'Sistema pronto.' }
+    ]
+};
+
+        let termRunning = false;
+
+        openBtn.addEventListener('click', () => {
+            overlay.classList.add('active');
+            if (!termRunning) {
+                runTerminalScript();
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.remove('active');
+        });
+
+        async function runTerminalScript() {
+            termRunning = true;
+            termBody.innerHTML = '';
+            
+            const currentLang = rootHtml.classList.contains('lang-en') ? 'en' : 'pt';
+            const scriptLines = scriptData[currentLang];
+            
+            for (let i = 0; i < scriptLines.length; i++) {
+                const line = scriptLines[i];
+                const div = document.createElement('div');
+                div.className = `term-line ${line.type === 'cmd' ? 'term-prompt' : 'term-output'}`;
+                
+                // Add highlight to specific keywords
+                let formattedText = line.text;
+                if (line.type === 'out') {
+                    formattedText = formattedText.replace(/(MAXIMUM|ENGAGED|ON|WARNING|Match found|Match encontrado)/g, '<span class="term-highlight">$1</span>');
+                }
+                
+                div.innerHTML = formattedText;
+                termBody.appendChild(div);
+                
+                // Trigger reflow for animation
+                void div.offsetWidth;
+                div.classList.add('visible');
+
+                // Auto scroll to bottom
+                termBody.scrollTop = termBody.scrollHeight;
+
+                // Random delay between 400ms and 1200ms
+                const delay = line.type === 'cmd' ? 800 : Math.random() * 400 + 200;
+                await new Promise(r => setTimeout(r, delay));
+            }
+            
+            // Add final blinking cursor
+            const cursor = document.createElement('div');
+            cursor.className = 'term-line term-prompt';
+            cursor.innerHTML = '<span style="animation: blink 1s infinite alternate;">_</span>';
+            termBody.appendChild(cursor);
+            cursor.classList.add('visible');
+            
+            // Allow restarting language after completion if closed and reopened
+            termRunning = false; 
+        }
+
+        // Add CSS for blinking cursor dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes blink {
+                0% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+</body>
 </html>
